@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.england.EnglandFragment">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/standings_england"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="50dp"
+        app:layout_constraintBottom_toTopOf="@+id/result_btn"
+        app:layout_constraintTop_toBottomOf="@+id/cardView"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <Button
+        android:id="@+id/result_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/result_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="683dp" />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:cardBackgroundColor="@color/grey"
+        app:cardCornerRadius="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/points_england_title"
+            android:layout_width="25dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="380dp"
+            android:gravity="center"
+            android:text="P"
+            android:textColor="@color/green"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/playedGames"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/played_games_england_title"
+            android:layout_width="20dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="355dp"
+            android:gravity="center"
+            android:text="G"
+            android:textColor="@color/green"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/lost"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/lost_england_title"
+            android:layout_width="20dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="320dp"
+            android:gravity="center"
+            android:text="L"
+            android:textColor="@color/green"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/draw"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/draw_england_title"
+            android:layout_width="20dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="295dp"
+            android:gravity="center"
+            android:text="D"
+            android:textColor="@color/green"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/won"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/won_england_title"
+            android:layout_width="20dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="270dp"
+            android:gravity="center"
+            android:text="W"
+            android:textColor="@color/green"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/form"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/form_england_title"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="185dp"
+            android:gravity="center"
+            android:text="Winstrike"
+            android:textColor="@color/green"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/nameTeam"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/name_team_england_title"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="90dp"
+            android:gravity="center"
+            android:text="Name"
+            android:textColor="@color/green"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/emblem"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/position_team_england_title"
+            android:layout_width="25dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="5dp"
+            android:gravity="center"
+            android:text="№"
+            android:textColor="@color/green"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="35dp"
+            android:gravity="center"
+            android:text="Emblem"
+            android:textColor="@color/green"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
