@@ -8,21 +8,11 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/standings_england"
-        android:layout_width="match_parent"
+        android:layout_width="410dp"
         android:layout_height="match_parent"
         android:layout_marginTop="50dp"
-        app:layout_constraintBottom_toTopOf="@+id/result_btn"
-        app:layout_constraintTop_toBottomOf="@+id/cardView"
-        tools:layout_editor_absoluteX="0dp" />
-
-    <Button
-        android:id="@+id/result_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/result_btn"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="683dp" />
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
@@ -38,7 +28,7 @@
             android:id="@+id/points_england_title"
             android:layout_width="25dp"
             android:layout_height="50dp"
-            android:layout_marginStart="380dp"
+            android:layout_marginStart="365dp"
             android:gravity="center"
             android:text="P"
             android:textColor="@color/green"
@@ -50,7 +40,7 @@
             android:id="@+id/played_games_england_title"
             android:layout_width="20dp"
             android:layout_height="50dp"
-            android:layout_marginStart="355dp"
+            android:layout_marginStart="340dp"
             android:gravity="center"
             android:text="G"
             android:textColor="@color/green"
@@ -62,7 +52,7 @@
             android:id="@+id/lost_england_title"
             android:layout_width="20dp"
             android:layout_height="50dp"
-            android:layout_marginStart="320dp"
+            android:layout_marginStart="315dp"
             android:gravity="center"
             android:text="L"
             android:textColor="@color/green"
@@ -74,7 +64,7 @@
             android:id="@+id/draw_england_title"
             android:layout_width="20dp"
             android:layout_height="50dp"
-            android:layout_marginStart="295dp"
+            android:layout_marginStart="290dp"
             android:gravity="center"
             android:text="D"
             android:textColor="@color/green"
@@ -86,7 +76,7 @@
             android:id="@+id/won_england_title"
             android:layout_width="20dp"
             android:layout_height="50dp"
-            android:layout_marginStart="270dp"
+            android:layout_marginStart="265dp"
             android:gravity="center"
             android:text="W"
             android:textColor="@color/green"
@@ -98,7 +88,7 @@
             android:id="@+id/form_england_title"
             android:layout_width="70dp"
             android:layout_height="50dp"
-            android:layout_marginStart="195dp"
+            android:layout_marginStart="190dp"
             android:gravity="center"
             android:text="Winstrike"
             android:textColor="@color/green"
@@ -131,7 +121,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/emblem_england"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_marginStart="30dp"
