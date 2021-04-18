@@ -9,6 +9,51 @@
         android:layout_height="60dp">
 
         <TextView
+            android:id="@+id/form1"
+            android:layout_width="14dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="190dp"
+            android:gravity="center"
+            android:textSize="12sp"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/form2"
+            android:layout_width="14dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="204dp"
+            android:gravity="center"
+            android:textSize="12sp"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/form3"
+            android:layout_width="14dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="218dp"
+            android:gravity="center"
+            android:textSize="12sp"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/form4"
+            android:layout_width="14dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="232dp"
+            android:gravity="center"
+            android:textSize="12sp"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/form5"
+            android:layout_width="14dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="246dp"
+            android:gravity="center"
+            android:textSize="12sp"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
             android:id="@+id/points"
             android:layout_width="25dp"
             android:layout_height="50dp"
@@ -56,16 +101,6 @@
             android:gravity="center"
             android:textSize="12sp"
             app:layout_constraintStart_toEndOf="@+id/form"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/form"
-            android:layout_width="70dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="190dp"
-            android:gravity="center"
-            android:textSize="12sp"
-            app:layout_constraintStart_toEndOf="@+id/nameTeam"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView

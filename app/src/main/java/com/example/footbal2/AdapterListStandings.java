@@ -11,8 +11,6 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.squareup.picasso.Picasso;
-
 import java.util.List;
 
 public class AdapterListStandings extends RecyclerView.Adapter<AdapterListStandings.ListStandingsViewHolder>{
@@ -42,10 +40,14 @@ public class AdapterListStandings extends RecyclerView.Adapter<AdapterListStandi
 
         holder.position.setText(Integer.toString(listStandings.getPosition()));
 
-        holder.emblem.setImageResource(listStandings.getDrawableEmblem());
+        Utils.fetchSvg(context, listStandings.getUrlEmblem(), holder.emblem);
 
         holder.nameTeam.setText(listStandings.getNameTeam());
-        holder.form.setText(listStandings.getForm());
+        holder.form1.setText(listStandings.getForm().get(0));
+        holder.form2.setText(listStandings.getForm().get(1));
+        holder.form3.setText(listStandings.getForm().get(2));
+        holder.form4.setText(listStandings.getForm().get(3));
+        holder.form5.setText(listStandings.getForm().get(4));
         holder.won.setText(Integer.toString(listStandings.getWon()));
         holder.draw.setText(Integer.toString(listStandings.getDraw()));
         holder.lost.setText(Integer.toString(listStandings.getLost()));
@@ -63,7 +65,11 @@ public class AdapterListStandings extends RecyclerView.Adapter<AdapterListStandi
         private TextView position;
         private ImageView emblem;
         private TextView nameTeam;
-        private TextView form;
+        private TextView form1;
+        private TextView form2;
+        private TextView form3;
+        private TextView form4;
+        private TextView form5;
         private TextView won;
         private TextView draw;
         private TextView lost;
@@ -76,7 +82,11 @@ public class AdapterListStandings extends RecyclerView.Adapter<AdapterListStandi
             position = itemView.findViewById(R.id.positionTeam);
             emblem = itemView.findViewById(R.id.emblem);
             nameTeam = itemView.findViewById(R.id.nameTeam);
-            form = itemView.findViewById(R.id.form);
+            form1 = itemView.findViewById(R.id.form1);
+            form2 = itemView.findViewById(R.id.form2);
+            form3 = itemView.findViewById(R.id.form3);
+            form4 = itemView.findViewById(R.id.form4);
+            form5 = itemView.findViewById(R.id.form5);
             won = itemView.findViewById(R.id.won);
             draw = itemView.findViewById(R.id.draw);
             lost = itemView.findViewById(R.id.lost);

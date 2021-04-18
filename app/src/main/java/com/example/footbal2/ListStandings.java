@@ -1,26 +1,34 @@
 package com.example.footbal2;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+
 public class ListStandings {
     private int position;
-    private int drawableEmblem;
+    private String urlEmblem;
     private String nameTeam;
-    private String form;
+    private List<String> form;
     private int won;
     private int draw;
     private int lost;
     private int playedGames;
     private int points;
 
-    public ListStandings(int position, int drawableEmblem, String nameTeam, String form, int won, int draw, int lost, int playedGames, int points) {
-        this.position = position;
-        this.drawableEmblem = drawableEmblem;
-        this.nameTeam = nameTeam;
-        this.form = form;
-        this.won = won;
-        this.draw = draw;
-        this.lost = lost;
-        this.playedGames = playedGames;
-        this.points = points;
+    public ListStandings(JSONObject object) throws JSONException {
+        this.position = object.getInt("position");
+        this.urlEmblem = object.getJSONObject("team").getString("crestUrl");
+        this.nameTeam = object.getJSONObject("team").getString("name");
+        this.form = new ArrayList<>(Arrays.asList(object.getString("form").split(",")));
+        this.won = object.getInt("won");
+        this.draw = object.getInt("draw");
+        this.lost = object.getInt("lost");
+        this.playedGames = object.getInt("playedGames");
+        this.points = object.getInt("points");
     }
 
     public int getPosition() {
@@ -31,12 +39,12 @@ public class ListStandings {
         this.position = position;
     }
 
-    public int getDrawableEmblem() {
-        return drawableEmblem;
+    public String getUrlEmblem() {
+        return urlEmblem;
     }
 
-    public void setDrawableEmblem(int drawableEmblem) {
-        this.drawableEmblem = drawableEmblem;
+    public void setUrlEmblem(String urlEmblem) {
+        this.urlEmblem = urlEmblem;
     }
 
     public String getNameTeam() {
@@ -47,11 +55,16 @@ public class ListStandings {
         this.nameTeam = nameTeam;
     }
 
-    public String getForm() {
+    public List<String> getForm() {
+        form.add("");
+        form.add("");
+        form.add("");
+        form.add("");
+        form.add("");
         return form;
     }
 
-    public void setForm(String form) {
+    public void setForm(List<String> form) {
         this.form = form;
     }
 
