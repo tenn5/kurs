@@ -14,7 +14,7 @@
             android:layout_height="50dp"
             android:layout_marginStart="195dp"
             android:gravity="center"
-            android:textSize="12sp"
+            android:textSize="14sp"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
@@ -23,7 +23,7 @@
             android:layout_height="50dp"
             android:layout_marginStart="207dp"
             android:gravity="center"
-            android:textSize="12sp"
+            android:textSize="14sp"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
@@ -32,7 +32,7 @@
             android:layout_height="50dp"
             android:layout_marginStart="219dp"
             android:gravity="center"
-            android:textSize="12sp"
+            android:textSize="14sp"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
@@ -41,7 +41,7 @@
             android:layout_height="50dp"
             android:layout_marginStart="231dp"
             android:gravity="center"
-            android:textSize="12sp"
+            android:textSize="14sp"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
@@ -50,7 +50,7 @@
             android:layout_height="50dp"
             android:layout_marginStart="243dp"
             android:gravity="center"
-            android:textSize="12sp"
+            android:textSize="14sp"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
@@ -59,7 +59,7 @@
             android:layout_height="50dp"
             android:layout_marginStart="365dp"
             android:gravity="center"
-            android:textSize="12sp"
+            android:textSize="14sp"
             app:layout_constraintStart_toEndOf="@+id/playedGames"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -69,7 +69,7 @@
             android:layout_height="50dp"
             android:layout_marginStart="340dp"
             android:gravity="center"
-            android:textSize="12sp"
+            android:textSize="14sp"
             app:layout_constraintStart_toEndOf="@+id/lost"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -79,7 +79,7 @@
             android:layout_height="50dp"
             android:layout_marginStart="315dp"
             android:gravity="center"
-            android:textSize="12sp"
+            android:textSize="14sp"
             app:layout_constraintStart_toEndOf="@+id/draw"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -89,7 +89,7 @@
             android:layout_height="50dp"
             android:layout_marginStart="290dp"
             android:gravity="center"
-            android:textSize="12sp"
+            android:textSize="14sp"
             app:layout_constraintStart_toEndOf="@+id/won"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -99,7 +99,7 @@
             android:layout_height="50dp"
             android:layout_marginStart="265dp"
             android:gravity="center"
-            android:textSize="12sp"
+            android:textSize="14sp"
             app:layout_constraintStart_toEndOf="@+id/form"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -109,7 +109,7 @@
             android:layout_height="50dp"
             android:layout_marginStart="90dp"
             android:gravity="center_vertical"
-            android:textSize="12sp"
+            android:textSize="14sp"
             app:layout_constraintStart_toEndOf="@+id/emblem"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -119,7 +119,7 @@
             android:layout_height="50dp"
             android:layout_marginStart="5dp"
             android:gravity="center"
-            android:textSize="12sp"
+            android:textSize="14sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
