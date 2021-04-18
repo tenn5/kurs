@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.germany.GermanyFragment">
+    tools:context=".fragments.GermanyFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/standings_germany"
@@ -24,114 +24,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/points_germany_title"
-            android:layout_width="25dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="365dp"
-            android:gravity="center"
-            android:text="P"
-            android:textColor="@color/green"
-            android:textSize="12sp"
-            app:layout_constraintStart_toEndOf="@+id/playedGames"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/played_games_germany_title"
-            android:layout_width="20dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="340dp"
-            android:gravity="center"
-            android:text="G"
-            android:textColor="@color/green"
-            android:textSize="12sp"
-            app:layout_constraintStart_toEndOf="@+id/lost"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/lost_germany_title"
-            android:layout_width="20dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="315dp"
-            android:gravity="center"
-            android:text="L"
-            android:textColor="@color/green"
-            android:textSize="12sp"
-            app:layout_constraintStart_toEndOf="@+id/draw"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/draw_germany_title"
-            android:layout_width="20dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="290dp"
-            android:gravity="center"
-            android:text="D"
-            android:textColor="@color/green"
-            android:textSize="12sp"
-            app:layout_constraintStart_toEndOf="@+id/won"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/won_germany_title"
-            android:layout_width="20dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="265dp"
-            android:gravity="center"
-            android:text="W"
-            android:textColor="@color/green"
-            android:textSize="12sp"
-            app:layout_constraintStart_toEndOf="@+id/form"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/form_germany_title"
-            android:layout_width="70dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="190dp"
-            android:gravity="center"
-            android:text="Winstrike"
-            android:textColor="@color/green"
-            android:textSize="12sp"
-            app:layout_constraintStart_toEndOf="@+id/nameTeam"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/name_team_germany_title"
-            android:layout_width="90dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="90dp"
-            android:gravity="center"
-            android:text="Name"
-            android:textColor="@color/green"
-            android:textSize="12sp"
-            app:layout_constraintStart_toEndOf="@+id/emblem"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/position_team_germany_title"
-            android:layout_width="20dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="5dp"
-            android:gravity="center"
-            android:text="№"
-            android:textColor="@color/green"
-            android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/emblem_germany"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_marginStart="30dp"
-            android:gravity="center"
-            android:text="Emblem"
-            android:textColor="@color/green"
-            android:textSize="12sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
+        <include
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            layout="@layout/standings_column_name" />
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

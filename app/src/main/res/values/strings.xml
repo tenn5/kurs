@@ -13,4 +13,13 @@
     <string name="menu_france">France</string>
     <string name="menu_italy">Italy</string>
     <string name="result_btn">Result</string>
+    <string name="p">P</string>
+    <string name="g">G</string>
+    <string name="l">L</string>
+    <string name="d">D</string>
+    <string name="w">W</string>
+    <string name="winstrike">Winstrike</string>
+    <string name="name">Name</string>
+    <string name="number">№</string>
+    <string name="team">Team</string>
 </resources>
