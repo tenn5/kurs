@@ -7,9 +7,9 @@
 
     <fragment
         android:id="@+id/nav_england"
-        android:name="com.example.footbal2.fragments.EnglandFragment"
+        android:name="com.example.footbal2.fragments.EnglandContainer"
         android:label="@string/menu_england"
-        tools:layout="@layout/fragment_england" />
+        tools:layout="@layout/fragment_england_container" />
 
     <fragment
         android:id="@+id/nav_germany"

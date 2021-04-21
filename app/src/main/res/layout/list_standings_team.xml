@@ -7,55 +7,55 @@
     android:layout_height="50dp">
 
     <TextView
-        android:id="@+id/form1"
+        android:id="@+id/five_matches_ago"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:gravity="center"
         android:textSize="14sp"
-        app:layout_constraintEnd_toStartOf="@+id/form2"
+        app:layout_constraintEnd_toStartOf="@+id/four_matches_ago"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/nameTeam"
         tools:layout_editor_absoluteY="0dp"
         app:layout_constraintHorizontal_weight="0.6" />
 
     <TextView
-        android:id="@+id/form2"
+        android:id="@+id/four_matches_ago"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:gravity="center"
         android:textSize="14sp"
-        app:layout_constraintEnd_toStartOf="@+id/form3"
+        app:layout_constraintEnd_toStartOf="@+id/three_matches_ago"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/form1"
+        app:layout_constraintStart_toEndOf="@+id/five_matches_ago"
         tools:layout_editor_absoluteY="0dp"
         app:layout_constraintHorizontal_weight="0.6" />
 
     <TextView
-        android:id="@+id/form3"
+        android:id="@+id/three_matches_ago"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:gravity="center"
         android:textSize="14sp"
-        app:layout_constraintEnd_toStartOf="@+id/form4"
+        app:layout_constraintEnd_toStartOf="@+id/two_matches_ago"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/form2"
+        app:layout_constraintStart_toEndOf="@+id/four_matches_ago"
         tools:layout_editor_absoluteY="0dp"
         app:layout_constraintHorizontal_weight="0.6"/>
 
     <TextView
-        android:id="@+id/form4"
+        android:id="@+id/two_matches_ago"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:gravity="center"
         android:textSize="14sp"
-        app:layout_constraintEnd_toStartOf="@+id/form5"
+        app:layout_constraintEnd_toStartOf="@+id/one_match_ago"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/form3"
+        app:layout_constraintStart_toEndOf="@+id/three_matches_ago"
         tools:layout_editor_absoluteY="0dp"
         app:layout_constraintHorizontal_weight="0.6" />
 
     <TextView
-        android:id="@+id/form5"
+        android:id="@+id/one_match_ago"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_marginEnd="10dp"
@@ -64,7 +64,7 @@
         app:layout_constraintEnd_toStartOf="@+id/won"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_weight="0.6"
-        app:layout_constraintStart_toEndOf="@+id/form4"
+        app:layout_constraintStart_toEndOf="@+id/two_matches_ago"
         tools:layout_editor_absoluteY="0dp" />
 
     <TextView
@@ -129,7 +129,7 @@
         app:layout_constraintEnd_toStartOf="@+id/draw"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_weight="1"
-        app:layout_constraintStart_toEndOf="@+id/form5"
+        app:layout_constraintStart_toEndOf="@+id/one_match_ago"
         tools:layout_editor_absoluteY="0dp" />
 
     <TextView
@@ -139,7 +139,7 @@
         android:layout_marginEnd="15dp"
         android:gravity="center_vertical"
         android:textSize="14sp"
-        app:layout_constraintEnd_toStartOf="@+id/form1"
+        app:layout_constraintEnd_toStartOf="@+id/five_matches_ago"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_weight="5.5"
         app:layout_constraintStart_toEndOf="@+id/emblem"

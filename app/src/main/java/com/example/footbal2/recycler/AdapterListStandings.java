@@ -47,11 +47,11 @@ public class AdapterListStandings extends RecyclerView.Adapter<AdapterListStandi
 
         holder.nameTeam.setText(listStandings.getNameTeam());
 
-        changeColor(holder.form1, listStandings.getForm().get(0));
-        changeColor(holder.form2, listStandings.getForm().get(1));
-        changeColor(holder.form3, listStandings.getForm().get(2));
-        changeColor(holder.form4, listStandings.getForm().get(3));
-        changeColor(holder.form5, listStandings.getForm().get(4));
+        changeColor(holder.oneMatchesAgo, listStandings.getForm().get(0));
+        changeColor(holder.twoMatchesAgo, listStandings.getForm().get(1));
+        changeColor(holder.threeMatchesAgo, listStandings.getForm().get(2));
+        changeColor(holder.fourMatchesAgo, listStandings.getForm().get(3));
+        changeColor(holder.fiveMatchesAgo, listStandings.getForm().get(4));
 
         holder.won.setText(Integer.toString(listStandings.getWon()));
         holder.draw.setText(Integer.toString(listStandings.getDraw()));
@@ -80,11 +80,11 @@ public class AdapterListStandings extends RecyclerView.Adapter<AdapterListStandi
         private TextView position;
         private ImageView emblem;
         private TextView nameTeam;
-        private TextView form1;
-        private TextView form2;
-        private TextView form3;
-        private TextView form4;
-        private TextView form5;
+        private TextView fiveMatchesAgo;
+        private TextView fourMatchesAgo;
+        private TextView threeMatchesAgo;
+        private TextView twoMatchesAgo;
+        private TextView oneMatchesAgo;
         private TextView won;
         private TextView draw;
         private TextView lost;
@@ -97,11 +97,11 @@ public class AdapterListStandings extends RecyclerView.Adapter<AdapterListStandi
             position = itemView.findViewById(R.id.positionTeam);
             emblem = itemView.findViewById(R.id.emblem);
             nameTeam = itemView.findViewById(R.id.nameTeam);
-            form1 = itemView.findViewById(R.id.form1);
-            form2 = itemView.findViewById(R.id.form2);
-            form3 = itemView.findViewById(R.id.form3);
-            form4 = itemView.findViewById(R.id.form4);
-            form5 = itemView.findViewById(R.id.form5);
+            fiveMatchesAgo = itemView.findViewById(R.id.five_matches_ago);
+            fourMatchesAgo = itemView.findViewById(R.id.four_matches_ago);
+            threeMatchesAgo = itemView.findViewById(R.id.three_matches_ago);
+            twoMatchesAgo = itemView.findViewById(R.id.two_matches_ago);
+            oneMatchesAgo = itemView.findViewById(R.id.one_match_ago);
             won = itemView.findViewById(R.id.won);
             draw = itemView.findViewById(R.id.draw);
             lost = itemView.findViewById(R.id.lost);
