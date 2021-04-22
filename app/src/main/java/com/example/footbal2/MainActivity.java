@@ -1,8 +1,12 @@
-package com.example.footbal2;
+ package com.example.footbal2;
 
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
+import android.widget.FrameLayout;
 
+import com.example.footbal2.fragments.Container;
+import com.example.footbal2.fragments.Country;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.appcompat.app.ActionBar;
@@ -17,6 +21,7 @@ import androidx.appcompat.widget.Toolbar;
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration mAppBarConfiguration;
+    private FrameLayout frameLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,26 +30,34 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        frameLayout = findViewById(R.id.nav_host_fragment);
 
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_england, R.id.nav_germany, R.id.nav_spain, R.id.nav_france, R.id.nav_italy)
-                .setDrawerLayout(drawer)
-                .build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
-        NavigationUI.setupWithNavController(navigationView, navController);
-
+        navigationView.setNavigationItemSelectedListener(this::navigationItemSelected);
+        getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, Container.getInstance(Country.ENGLAND), null).commit();
     }
 
-
-    @Override
-    public boolean onSupportNavigateUp() {
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        return NavigationUI.navigateUp(navController, mAppBarConfiguration)
-                || super.onSupportNavigateUp();
+    private boolean navigationItemSelected(MenuItem item) {
+        Container container;
+        switch (item.getItemId()){
+            case R.id.nav_england:
+                container = Container.getInstance(Country.ENGLAND);
+                break;
+            case R.id.nav_germany:
+                container = Container.getInstance(Country.GERMANY);
+                break;
+            case R.id.nav_spain:
+                container = Container.getInstance(Country.SPAIN);
+                break;
+            case R.id.nav_france:
+                container = Container.getInstance(Country.FRANCE);
+                break;
+            default:
+                container = Container.getInstance(Country.ITALY);
+                break;
+        }
+        getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, container, null).commit();
+        return true;
     }
+
 }
