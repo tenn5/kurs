@@ -1,6 +1,7 @@
 package com.example.footbal2.recycler;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -56,7 +57,9 @@ public class AdapterListStandings extends RecyclerView.Adapter<AdapterListStandi
         holder.won.setText(Integer.toString(listStandings.getWon()));
         holder.draw.setText(Integer.toString(listStandings.getDraw()));
         holder.lost.setText(Integer.toString(listStandings.getLost()));
+
         holder.playedGames.setText(Integer.toString(listStandings.getPlayedGames()));
+
         holder.points.setText(Integer.toString(listStandings.getPoints()));
     }
     private void changeColor(TextView form, String text){
