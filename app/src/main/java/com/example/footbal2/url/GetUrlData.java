@@ -6,6 +6,7 @@ import android.os.AsyncTask;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.footbal2.constants.TypeData;
 import com.example.footbal2.recycler.AdapterListStandings;
 import com.example.footbal2.recycler.ListStandings;
 import com.example.footbal2.constants.GetRequest;
@@ -26,11 +27,21 @@ import java.util.List;
 public class GetUrlData extends AsyncTask<String, String, String> {
 
     private Context context;
+    private TypeData typeData;
     private RecyclerView rv;
+    int matchDay;
 
-    public GetUrlData(Context context, RecyclerView rv) {
+    public GetUrlData(Context context, RecyclerView rv, TypeData typeData) {
         this.context = context;
+        this.typeData = typeData;
         this.rv = rv;
+    }
+
+    public GetUrlData(Context context, RecyclerView rv, TypeData typeData, int matchDay) {
+        this.context = context;
+        this.typeData = typeData;
+        this.rv = rv;
+        this.matchDay = matchDay;
     }
 
     @Override
@@ -81,7 +92,12 @@ public class GetUrlData extends AsyncTask<String, String, String> {
         try {
             rv.setHasFixedSize(true);
             rv.setLayoutManager( new LinearLayoutManager(context));
-            rv.setAdapter(new AdapterListStandings(context, createTeams(new JSONObject(result))));
+            if (typeData == TypeData.STANDINGS){
+                rv.setAdapter(new AdapterListStandings(context, createTeams(new JSONObject(result))));
+            } else {
+                rv.setAdapter(new AdapterListStandings(context, createMatch(new JSONObject(result), matchDay)));
+            }
+
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -93,6 +109,11 @@ public class GetUrlData extends AsyncTask<String, String, String> {
         for (int i = 0; i < jsonArray.length(); i++){
             teams.add(new ListStandings(jsonArray.getJSONObject(i)));
         }
+        return teams;
+    }
+
+    public List<ListStandings> createMatch(JSONObject jsonObject, int matchDay) throws JSONException {
+        List<ListStandings> teams = new ArrayList<>();
         return teams;
     }
 }

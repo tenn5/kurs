@@ -15,11 +15,11 @@ import com.example.footbal2.constants.GetRequest;
 import com.example.footbal2.constants.TypeData;
 import com.example.footbal2.url.GetUrlData;
 
-public class Standings extends Fragment {
+public class Match extends Fragment {
 
     Country country;
 
-    public Standings(Country country) {
+    public Match(Country country) {
         this.country = country;
     }
 
@@ -27,7 +27,7 @@ public class Standings extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
 
 
-        return inflater.inflate(R.layout.standings, container, false);
+        return inflater.inflate(R.layout.matches, container, false);
     }
 
     @Override
@@ -36,21 +36,22 @@ public class Standings extends Fragment {
 
         switch (country){
             case ENGLAND:
-                new GetUrlData(getContext(), view.findViewById(R.id.standings), TypeData.STANDINGS).execute(new GetRequest().getStandingsEnglandUrl());
+                new GetUrlData(getContext(), view.findViewById(R.id.standings), TypeData.MATCH).execute(new GetRequest().getStandingsEnglandUrl());
                 break;
             case GERMANY:
-                new GetUrlData(getContext(), view.findViewById(R.id.standings), TypeData.STANDINGS).execute(new GetRequest().getStandingsGermanyUrl());
+                new GetUrlData(getContext(), view.findViewById(R.id.standings), TypeData.MATCH).execute(new GetRequest().getStandingsGermanyUrl());
                 break;
             case SPAIN:
-                new GetUrlData(getContext(), view.findViewById(R.id.standings), TypeData.STANDINGS).execute(new GetRequest().getStandingsSpainUrl());
+                new GetUrlData(getContext(), view.findViewById(R.id.standings), TypeData.MATCH).execute(new GetRequest().getStandingsSpainUrl());
                 break;
             case FRANCE:
-                new GetUrlData(getContext(), view.findViewById(R.id.standings), TypeData.STANDINGS).execute(new GetRequest().getStandingsFranceUrl());
+                new GetUrlData(getContext(), view.findViewById(R.id.standings), TypeData.MATCH).execute(new GetRequest().getStandingsFranceUrl());
                 break;
             default:
-                new GetUrlData(getContext(), view.findViewById(R.id.standings), TypeData.STANDINGS).execute(new GetRequest().getStandingsItalyUrl());
+                new GetUrlData(getContext(), view.findViewById(R.id.standings), TypeData.MATCH).execute(new GetRequest().getStandingsItalyUrl());
                 break;
         }
     }
 }
+
 

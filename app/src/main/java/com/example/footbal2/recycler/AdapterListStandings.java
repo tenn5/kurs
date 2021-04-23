@@ -21,7 +21,6 @@ public class AdapterListStandings extends RecyclerView.Adapter<AdapterListStandi
 
     private List<ListStandings> list;
     private Context context;
-    private FragmentManager fragmentManager;
 
     public AdapterListStandings(Context context, List<ListStandings> list) {
         this.context = context;
