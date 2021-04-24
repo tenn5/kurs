@@ -2,12 +2,20 @@ package com.example.footbal2.url;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Spinner;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.footbal2.R;
+import com.example.footbal2.constants.Country;
 import com.example.footbal2.constants.TypeData;
+import com.example.footbal2.recycler.AdapterListMatch;
 import com.example.footbal2.recycler.AdapterListStandings;
+import com.example.footbal2.recycler.ListMatch;
 import com.example.footbal2.recycler.ListStandings;
 import com.example.footbal2.constants.GetRequest;
 
@@ -29,7 +37,9 @@ public class GetUrlData extends AsyncTask<String, String, String> {
     private Context context;
     private TypeData typeData;
     private RecyclerView rv;
-    int matchDay;
+    private Spinner spinner;
+    private int matchDay;
+    private Country country;
 
     public GetUrlData(Context context, RecyclerView rv, TypeData typeData) {
         this.context = context;
@@ -37,12 +47,14 @@ public class GetUrlData extends AsyncTask<String, String, String> {
         this.rv = rv;
     }
 
-    public GetUrlData(Context context, RecyclerView rv, TypeData typeData, int matchDay) {
+    public GetUrlData(Context context, Spinner spinner, TypeData typeData, Country country, RecyclerView rv) {
         this.context = context;
+        this.spinner = spinner;
         this.typeData = typeData;
+        this.country = country;
         this.rv = rv;
-        this.matchDay = matchDay;
     }
+
 
     @Override
     protected String doInBackground(String... strings) {
@@ -88,14 +100,18 @@ public class GetUrlData extends AsyncTask<String, String, String> {
     @Override
     protected void onPostExecute(String result){
         super.onPostExecute(result);
-
         try {
-            rv.setHasFixedSize(true);
-            rv.setLayoutManager( new LinearLayoutManager(context));
             if (typeData == TypeData.STANDINGS){
+                rv.setHasFixedSize(true);
+                rv.setLayoutManager( new LinearLayoutManager(context));
                 rv.setAdapter(new AdapterListStandings(context, createTeams(new JSONObject(result))));
-            } else {
-                rv.setAdapter(new AdapterListStandings(context, createMatch(new JSONObject(result), matchDay)));
+            } else if (typeData == TypeData.MATCH){
+                rv.setHasFixedSize(true);
+                rv.setLayoutManager( new LinearLayoutManager(context));
+                rv.setAdapter(new AdapterListMatch(context, createMatch(new JSONObject(result))));
+            } else if (typeData == TypeData.SPINNER){
+                setSpinner(new JSONObject(result));
+
             }
 
         } catch (JSONException e) {
@@ -103,7 +119,7 @@ public class GetUrlData extends AsyncTask<String, String, String> {
         }
     }
 
-    public List<ListStandings> createTeams(JSONObject jsonObject) throws JSONException {
+    private List<ListStandings> createTeams(JSONObject jsonObject) throws JSONException {
         List<ListStandings> teams = new ArrayList<>();
         JSONArray jsonArray = jsonObject.getJSONArray("standings").getJSONObject(0).getJSONArray("table");
         for (int i = 0; i < jsonArray.length(); i++){
@@ -112,8 +128,61 @@ public class GetUrlData extends AsyncTask<String, String, String> {
         return teams;
     }
 
-    public List<ListStandings> createMatch(JSONObject jsonObject, int matchDay) throws JSONException {
-        List<ListStandings> teams = new ArrayList<>();
+    private List<ListMatch> createMatch(JSONObject jsonObject) throws JSONException {
+        List<ListMatch> teams = new ArrayList<>();
+        JSONArray jsonArray = jsonObject.getJSONArray("matches");
+        for (int i = 0; i < jsonArray.length(); i++){
+            teams.add(new ListMatch(jsonArray.getJSONObject(i)));
+        }
         return teams;
     }
+
+    private void setSpinner(JSONObject jsonObject) throws JSONException {
+        JSONArray jsonArray = jsonObject.getJSONArray("matches");
+        int numberLastTour = jsonArray.getJSONObject(0).getJSONObject("season").getInt("currentMatchday");
+
+        String[] array = new String[numberLastTour];
+        for(int i = 0; i < numberLastTour; i++){
+            array[i] = (numberLastTour - i) + " tour";
+        }
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(context, android.R.layout.simple_spinner_item, array);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+        spinner.setOnItemSelectedListener(itemSelectedListener);
+
+    }
+
+    private AdapterView.OnItemSelectedListener itemSelectedListener = new AdapterView.OnItemSelectedListener() {
+        @Override
+        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+            matchDay = Integer.parseInt(((String)parent.getItemAtPosition(position)).split(" ")[0]);
+            System.out.println(new GetRequest().getMatchesEnglandByTour() + matchDay);
+            switch (country){
+                case ENGLAND:
+                    new GetUrlData(context, rv, TypeData.MATCH)
+                            .execute(new GetRequest().getMatchesEnglandByTour() + matchDay);
+                    break;
+                case GERMANY:
+                    new GetUrlData(context, rv, TypeData.MATCH)
+                            .execute(new GetRequest().getMatchesGermanyByTour() + matchDay);
+                    break;
+                case SPAIN:
+                    new GetUrlData(context, rv, TypeData.MATCH)
+                            .execute(new GetRequest().getMatchesSpainByTour() + matchDay);
+                    break;
+                case FRANCE:
+                    new GetUrlData(context, rv, TypeData.MATCH)
+                            .execute(new GetRequest().getMatchesFranceByTour() + matchDay);
+                    break;
+                default:
+                    new GetUrlData(context, rv, TypeData.MATCH)
+                            .execute(new GetRequest().getMatchesItalyByTour() + matchDay);
+                    break;
+            }
+        }
+        @Override
+        public void onNothingSelected(AdapterView<?> parent) {
+        }
+    };
+
 }

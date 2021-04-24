@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.footbal2.R;
 import com.example.footbal2.constants.Country;
@@ -36,19 +37,19 @@ public class Standings extends Fragment {
 
         switch (country){
             case ENGLAND:
-                new GetUrlData(getContext(), view.findViewById(R.id.standings), TypeData.STANDINGS).execute(new GetRequest().getStandingsEnglandUrl());
+                new GetUrlData(getContext(), (RecyclerView) view.findViewById(R.id.standings), TypeData.STANDINGS).execute(new GetRequest().getStandingsEnglandUrl());
                 break;
             case GERMANY:
-                new GetUrlData(getContext(), view.findViewById(R.id.standings), TypeData.STANDINGS).execute(new GetRequest().getStandingsGermanyUrl());
+                new GetUrlData(getContext(), (RecyclerView) view.findViewById(R.id.standings), TypeData.STANDINGS).execute(new GetRequest().getStandingsGermanyUrl());
                 break;
             case SPAIN:
-                new GetUrlData(getContext(), view.findViewById(R.id.standings), TypeData.STANDINGS).execute(new GetRequest().getStandingsSpainUrl());
+                new GetUrlData(getContext(), (RecyclerView) view.findViewById(R.id.standings), TypeData.STANDINGS).execute(new GetRequest().getStandingsSpainUrl());
                 break;
             case FRANCE:
-                new GetUrlData(getContext(), view.findViewById(R.id.standings), TypeData.STANDINGS).execute(new GetRequest().getStandingsFranceUrl());
+                new GetUrlData(getContext(), (RecyclerView) view.findViewById(R.id.standings), TypeData.STANDINGS).execute(new GetRequest().getStandingsFranceUrl());
                 break;
             default:
-                new GetUrlData(getContext(), view.findViewById(R.id.standings), TypeData.STANDINGS).execute(new GetRequest().getStandingsItalyUrl());
+                new GetUrlData(getContext(), (RecyclerView) view.findViewById(R.id.standings), TypeData.STANDINGS).execute(new GetRequest().getStandingsItalyUrl());
                 break;
         }
     }

@@ -5,24 +5,17 @@ import org.json.JSONObject;
 
 public class ListMatch {
     private String winner;
-    private String urlEmblemTeam1;
     private String nameTeam1;
-    private int resultTeam1;
-    private int resultTeam2;
+    private String resultTeam1;
+    private String resultTeam2;
     private String nameTeam2;
-    private String urlEmblemTeam2;
-
 
     public ListMatch(JSONObject object) throws JSONException {
-
-    }
-
-    public String getUrlEmblemTeam1() {
-        return urlEmblemTeam1;
-    }
-
-    public void setUrlEmblemTeam1(String urlEmblemTeam1) {
-        this.urlEmblemTeam1 = urlEmblemTeam1;
+        this.winner = object.getJSONObject("score").getString("winner");
+        this.nameTeam1 = object.getJSONObject("homeTeam").getString("name");
+        this.nameTeam2 = object.getJSONObject("awayTeam").getString("name");
+        this.resultTeam1 = object.getJSONObject("score").getJSONObject("fullTime").getString("homeTeam");
+        this.resultTeam2 = object.getJSONObject("score").getJSONObject("fullTime").getString("awayTeam");
     }
 
     public String getNameTeam1() {
@@ -33,19 +26,19 @@ public class ListMatch {
         this.nameTeam1 = nameTeam1;
     }
 
-    public int getResultTeam1() {
+    public String getResultTeam1() {
         return resultTeam1;
     }
 
-    public void setResultTeam1(int resultTeam1) {
+    public void setResultTeam1(String resultTeam1) {
         this.resultTeam1 = resultTeam1;
     }
 
-    public int getResultTeam2() {
+    public String getResultTeam2() {
         return resultTeam2;
     }
 
-    public void setResultTeam2(int resultTeam2) {
+    public void setResultTeam2(String resultTeam2) {
         this.resultTeam2 = resultTeam2;
     }
 
@@ -55,14 +48,6 @@ public class ListMatch {
 
     public void setNameTeam2(String nameTeam2) {
         this.nameTeam2 = nameTeam2;
-    }
-
-    public String getUrlEmblemTeam2() {
-        return urlEmblemTeam2;
-    }
-
-    public void setUrlEmblemTeam2(String urlEmblemTeam2) {
-        this.urlEmblemTeam2 = urlEmblemTeam2;
     }
 
     public String getWinner() {

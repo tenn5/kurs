@@ -35,23 +35,23 @@ public class Container extends Fragment {
         switch (country){
             case ENGLAND:
                 adapter.addFragment(new Standings(Country.ENGLAND), "Standings");
-                adapter.addFragment(new Standings(Country.ITALY), "Match");
+                adapter.addFragment(new Matches(Country.ENGLAND), "Match");
                 break;
             case GERMANY:
                 adapter.addFragment(new Standings(Country.GERMANY), "Standings");
-                adapter.addFragment(new Standings(Country.ITALY), "Match");
+                adapter.addFragment(new Matches(Country.GERMANY), "Match");
                 break;
             case SPAIN:
                 adapter.addFragment(new Standings(Country.SPAIN), "Standings");
-                adapter.addFragment(new Standings(Country.ITALY), "Match");
+                adapter.addFragment(new Matches(Country.SPAIN), "Match");
                 break;
             case FRANCE:
                 adapter.addFragment(new Standings(Country.FRANCE), "Standings");
-                adapter.addFragment(new Standings(Country.ITALY), "Match");
+                adapter.addFragment(new Matches(Country.FRANCE), "Match");
                 break;
             default:
                 adapter.addFragment(new Standings(Country.ITALY), "Standings");
-                adapter.addFragment(new Standings(Country.ITALY), "Match");
+                adapter.addFragment(new Matches(Country.ITALY), "Match");
                 break;
         }
 

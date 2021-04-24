@@ -6,40 +6,34 @@
     android:layout_width="match_parent"
     android:layout_height="50dp">
 
-    <ImageView
-        android:id="@+id/emblem_team1"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        app:layout_constraintEnd_toStartOf="@+id/name_team1"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintHorizontal_weight="2.5"
-        tools:layout_editor_absoluteY="0dp" />
-
     <TextView
         android:id="@+id/name_team1"
         android:layout_width="0dp"
         android:layout_height="match_parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="10dp"
         android:gravity="center"
-        android:textSize="14sp"
+        android:textSize="16sp"
         app:layout_constraintEnd_toStartOf="@+id/result_btn"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/emblem_team1"
-        app:layout_constraintHorizontal_weight="6.5"
+        app:layout_constraintHorizontal_weight="8"
+        app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteY="0dp" />
 
     <Button
         android:id="@+id/result_btn"
         android:layout_width="0dp"
         android:layout_height="match_parent"
+        android:background="@android:color/transparent"
         android:gravity="center"
         android:insetTop="0dp"
         android:insetBottom="0dp"
-        android:textSize="14sp"
+        android:textColor="@color/black"
+        android:textSize="16sp"
         app:cornerRadius="0dp"
         app:layout_constraintEnd_toStartOf="@+id/name_team2"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_weight="3"
+        app:layout_constraintHorizontal_weight="5"
         app:layout_constraintStart_toEndOf="@+id/name_team1"
         tools:layout_editor_absoluteY="0dp" />
 
@@ -47,22 +41,15 @@
         android:id="@+id/name_team2"
         android:layout_width="0dp"
         android:layout_height="match_parent"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="20dp"
         android:gravity="center"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toStartOf="@+id/emblem_team2"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/result_btn"
-        app:layout_constraintHorizontal_weight="6.5"
-        tools:layout_editor_absoluteY="0dp" />
-
-    <ImageView
-        android:id="@+id/emblem_team2"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/name_team2"
-        app:layout_constraintHorizontal_weight="2.5"
-        tools:layout_editor_absoluteY="0dp"/>
+        app:layout_constraintHorizontal_weight="8"
+        app:layout_constraintStart_toEndOf="@+id/result_btn"
+        tools:layout_editor_absoluteY="0dp" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

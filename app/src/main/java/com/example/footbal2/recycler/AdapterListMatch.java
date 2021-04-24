@@ -33,7 +33,7 @@ public class AdapterListMatch extends RecyclerView.Adapter<AdapterListMatch.List
     @Override
     public ListMatchViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
 
-        View v = LayoutInflater.from(context).inflate(R.layout.list_standings_team, viewGroup, false);
+        View v = LayoutInflater.from(context).inflate(R.layout.list_match, viewGroup, false);
         ListMatchViewHolder holder = new ListMatchViewHolder(v);
 
         return holder;
@@ -42,14 +42,17 @@ public class AdapterListMatch extends RecyclerView.Adapter<AdapterListMatch.List
     @Override
     public void onBindViewHolder(@NonNull ListMatchViewHolder holder, int i) {
         ListMatch listStandings = list.get(i);
-        Utils.fetchSvg(context, listStandings.getUrlEmblemTeam1(), holder.emblemTeam1);
         holder.nameTeam1.setText(listStandings.getNameTeam1());
-        String result = listStandings.getResultTeam1() + ":" + listStandings.getResultTeam2();
-        holder.result.setText(result);
         holder.nameTeam2.setText(listStandings.getNameTeam2());
-        Utils.fetchSvg(context, listStandings.getUrlEmblemTeam2(), holder.emblemTeam2);
 
-        changeColor(holder.nameTeam1, holder.nameTeam2, listStandings.getWinner());
+        if (listStandings.getWinner().equals("null")) {
+            holder.result.setText(":");
+        } else {
+            holder.result.setBackgroundColor(context.getColor(R.color.green));
+            holder.result.setTextColor(context.getColor(R.color.white));
+            holder.result.setText(listStandings.getResultTeam1() + ":" + listStandings.getResultTeam2());
+            changeColor(holder.nameTeam1, holder.nameTeam2, listStandings.getWinner());
+        }
     }
     private void changeColor(TextView team1, TextView team2, String result){
         if (result.equals("HOME_TEAM")){
@@ -71,20 +74,16 @@ public class AdapterListMatch extends RecyclerView.Adapter<AdapterListMatch.List
 
     public static class ListMatchViewHolder extends RecyclerView.ViewHolder {
 
-        private ImageView emblemTeam1;
         private TextView nameTeam1;
         private Button result;
         private TextView nameTeam2;
-        private ImageView emblemTeam2;
 
         public ListMatchViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            emblemTeam1 = itemView.findViewById(R.id.emblem_team1);
             nameTeam1 = itemView.findViewById(R.id.name_team1);
             result = itemView.findViewById(R.id.result_btn);
             nameTeam2 = itemView.findViewById(R.id.name_team2);
-            emblemTeam2 = itemView.findViewById(R.id.emblem_team2);
         }
     }
 }
