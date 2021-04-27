@@ -2,20 +2,17 @@ package com.example.footbal2.recycler;
 
 
 import android.content.Context;
-import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.footbal2.R;
-import com.example.footbal2.url.Utils;
+import com.example.footbal2.constants.GetRequest;
 
 import java.util.List;
 
@@ -42,11 +39,18 @@ public class AdapterListMatch extends RecyclerView.Adapter<AdapterListMatch.List
     @Override
     public void onBindViewHolder(@NonNull ListMatchViewHolder holder, int i) {
         ListMatch listStandings = list.get(i);
-        holder.nameTeam1.setText(listStandings.getNameTeam1());
-        holder.nameTeam2.setText(listStandings.getNameTeam2());
+
+        holder.nameTeam1.setText(listStandings.getNameTeam1()
+                .replaceAll(new GetRequest().getRegexNameTeam(), "")
+                .replace("1.", "")
+                .trim().replaceAll("\\s{2,}", " "));
+        holder.nameTeam2.setText(listStandings.getNameTeam2()
+                .replaceAll(new GetRequest().getRegexNameTeam(), "")
+                .replace("1.", "")
+                .trim().replaceAll("\\s{2,}", " "));
 
         if (listStandings.getWinner().equals("null")) {
-            holder.result.setText(":");
+            holder.result.setText("-:-");
         } else {
             holder.result.setBackgroundColor(context.getColor(R.color.green));
             holder.result.setTextColor(context.getColor(R.color.white));
@@ -74,16 +78,16 @@ public class AdapterListMatch extends RecyclerView.Adapter<AdapterListMatch.List
 
     public static class ListMatchViewHolder extends RecyclerView.ViewHolder {
 
-        private TextView nameTeam1;
-        private Button result;
-        private TextView nameTeam2;
+        private Button nameTeam1;
+        private TextView result;
+        private Button nameTeam2;
 
         public ListMatchViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            nameTeam1 = itemView.findViewById(R.id.name_team1);
-            result = itemView.findViewById(R.id.result_btn);
-            nameTeam2 = itemView.findViewById(R.id.name_team2);
+            nameTeam1 = itemView.findViewById(R.id.name_team_btn1);
+            result = itemView.findViewById(R.id.result_text);
+            nameTeam2 = itemView.findViewById(R.id.name_team_btn2);
         }
     }
 }

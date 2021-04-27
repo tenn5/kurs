@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/toolbar"
     android:layout_width="match_parent"
-    android:layout_height="50dp">
+    android:layout_height="50dp"
+    android:layout_marginTop="5dp">
 
     <TextView
         android:id="@+id/five_matches_ago"
@@ -14,9 +15,9 @@
         android:textSize="14sp"
         app:layout_constraintEnd_toStartOf="@+id/four_matches_ago"
         app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_weight="0.6"
         app:layout_constraintStart_toEndOf="@+id/nameTeam"
-        tools:layout_editor_absoluteY="0dp"
-        app:layout_constraintHorizontal_weight="0.6" />
+        tools:layout_editor_absoluteY="0dp" />
 
     <TextView
         android:id="@+id/four_matches_ago"
@@ -26,9 +27,9 @@
         android:textSize="14sp"
         app:layout_constraintEnd_toStartOf="@+id/three_matches_ago"
         app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_weight="0.6"
         app:layout_constraintStart_toEndOf="@+id/five_matches_ago"
-        tools:layout_editor_absoluteY="0dp"
-        app:layout_constraintHorizontal_weight="0.6" />
+        tools:layout_editor_absoluteY="0dp" />
 
     <TextView
         android:id="@+id/three_matches_ago"
@@ -38,9 +39,9 @@
         android:textSize="14sp"
         app:layout_constraintEnd_toStartOf="@+id/two_matches_ago"
         app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_weight="0.6"
         app:layout_constraintStart_toEndOf="@+id/four_matches_ago"
-        tools:layout_editor_absoluteY="0dp"
-        app:layout_constraintHorizontal_weight="0.6"/>
+        tools:layout_editor_absoluteY="0dp" />
 
     <TextView
         android:id="@+id/two_matches_ago"
@@ -50,9 +51,9 @@
         android:textSize="14sp"
         app:layout_constraintEnd_toStartOf="@+id/one_match_ago"
         app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_weight="0.6"
         app:layout_constraintStart_toEndOf="@+id/three_matches_ago"
-        tools:layout_editor_absoluteY="0dp"
-        app:layout_constraintHorizontal_weight="0.6" />
+        tools:layout_editor_absoluteY="0dp" />
 
     <TextView
         android:id="@+id/one_match_ago"
@@ -137,16 +138,23 @@
         app:layout_constraintStart_toEndOf="@+id/one_match_ago"
         tools:layout_editor_absoluteY="0dp" />
 
-    <TextView
+    <Button
         android:id="@+id/nameTeam"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_marginEnd="15dp"
+        android:layout_marginEnd="10dp"
+        android:background="@android:color/transparent"
         android:gravity="center_vertical"
-        android:textSize="14sp"
+        android:insetTop="0dp"
+        android:insetBottom="0dp"
+        android:padding="0dp"
+        android:textAllCaps="false"
+        android:textColor="#8a000000"
+        android:textSize="13.8sp"
+        app:cornerRadius="0dp"
         app:layout_constraintEnd_toStartOf="@+id/five_matches_ago"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintHorizontal_weight="5.5"
+        app:layout_constraintHorizontal_weight="6"
         app:layout_constraintStart_toEndOf="@+id/emblem"
         tools:layout_editor_absoluteY="0dp" />
 

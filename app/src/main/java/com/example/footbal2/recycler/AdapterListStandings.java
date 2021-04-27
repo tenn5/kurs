@@ -13,6 +13,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.footbal2.R;
+import com.example.footbal2.constants.GetRequest;
 import com.example.footbal2.url.Utils;
 
 import java.util.List;
@@ -45,7 +46,10 @@ public class AdapterListStandings extends RecyclerView.Adapter<AdapterListStandi
 
         Utils.fetchSvg(context, listStandings.getUrlEmblem(), holder.emblem);
 
-        holder.nameTeam.setText(listStandings.getNameTeam());
+        holder.nameTeam.setText(listStandings.getNameTeam()
+                .replaceAll(new GetRequest().getRegexNameTeam(), "")
+                .replace("1.", "")
+                .trim().replaceAll("\\s{2,}", " "));
 
         changeColor(holder.oneMatchesAgo, listStandings.getForm().get(0));
         changeColor(holder.twoMatchesAgo, listStandings.getForm().get(1));
