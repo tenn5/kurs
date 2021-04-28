@@ -44,11 +44,12 @@
         android:id="@+id/matches_rv"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:background="@color/platinum"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/card"
-        app:layout_constraintVertical_weight="13.6"/>
+        app:layout_constraintVertical_weight="13.6" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -18,7 +18,7 @@
     <string name="l">L</string>
     <string name="d">D</string>
     <string name="w">W</string>
-    <string name="winstrike">Winstrike</string>
+    <string name="form">Form</string>
     <string name="name">Name</string>
     <string name="number">№</string>
     <string name="team">Team</string>
@@ -27,4 +27,7 @@
     <string name="standings_container">Standings</string>
     <string name="match_container">Match</string>
     <string name="choose_a_tour">Choose a tour</string>
+    <string name="website_text">Website</string>
+    <string name="stadium_text">Stadium</string>
+    <string name="founded_text">Founded</string>
 </resources>

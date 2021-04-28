@@ -2,6 +2,7 @@ package com.example.footbal2.recycler;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.footbal2.InfoTeam;
 import com.example.footbal2.R;
 import com.example.footbal2.constants.GetRequest;
 
@@ -55,7 +57,17 @@ public class AdapterListMatch extends RecyclerView.Adapter<AdapterListMatch.List
             changeColor(holder.nameTeam1, holder.nameTeam2, listStandings.getWinner());
         }
 
+        holder.nameTeam1.setOnClickListener(v -> {
+            Intent intent = new Intent(context, InfoTeam.class);
+            intent.putExtra("id", listStandings.getIdTeam1());
+            context.startActivity(intent);
+        });
 
+        holder.nameTeam2.setOnClickListener(v -> {
+            Intent intent = new Intent(context, InfoTeam.class);
+            intent.putExtra("id", listStandings.getIdTeam2());
+            context.startActivity(intent);
+        });
     }
     private void changeColor(TextView team1, TextView team2, String result){
         if (!result.equals("HOME_TEAM")) {
