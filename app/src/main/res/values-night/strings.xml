@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Football2</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Football</string>
+    <string name="nav_header_subtitle">keosakartem@gmail.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_england">England</string>
+    <string name="menu_germany">Germany</string>
+    <string name="menu_spain">Spain</string>
+    <string name="menu_france">France</string>
+    <string name="menu_italy">Italy</string>
+    <string name="result_btn">Result</string>
+    <string name="p">P</string>
+    <string name="g">G</string>
+    <string name="l">L</string>
+    <string name="d">D</string>
+    <string name="w">W</string>
+    <string name="winstrike">Winstrike</string>
+    <string name="name">Name</string>
+    <string name="number">№</string>
+    <string name="team">Team</string>
+    
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="standings_container">Standings</string>
+    <string name="match_container">Match</string>
+    <string name="choose_a_tour">Choose a tour</string>
+</resources>

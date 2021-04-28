@@ -8,50 +8,44 @@ import java.util.Arrays;
 import java.util.List;
 
 public class ListStandings {
-    private int position;
-    private String urlEmblem;
-    private String nameTeam;
-    private List<String> form;
-    private int won;
-    private int draw;
-    private int lost;
-    private int playedGames;
-    private int points;
+    private final String id;
+    private final String position;
+    private final String urlEmblem;
+    private final String nameTeam;
+    private final List<String> form;
+    private final String won;
+    private final String draw;
+    private final String lost;
+    private final String playedGames;
+    private final String points;
 
     public ListStandings(JSONObject object) throws JSONException {
-        this.position = object.getInt("position");
+        this.id = object.getJSONObject("team").getString("id");
+        this.position = object.getString("position");
         this.urlEmblem = object.getJSONObject("team").getString("crestUrl");
         this.nameTeam = object.getJSONObject("team").getString("name");
         this.form = new ArrayList<>(Arrays.asList(object.getString("form").split(",")));
-        this.won = object.getInt("won");
-        this.draw = object.getInt("draw");
-        this.lost = object.getInt("lost");
-        this.playedGames = object.getInt("playedGames");
-        this.points = object.getInt("points");
+        this.won = object.getString("won");
+        this.draw = object.getString("draw");
+        this.lost = object.getString("lost");
+        this.playedGames = object.getString("playedGames");
+        this.points = object.getString("points");
     }
 
-    public int getPosition() {
+    public String getId() {
+        return id;
+    }
+
+    public String getPosition() {
         return position;
-    }
-
-    public void setPosition(int position) {
-        this.position = position;
     }
 
     public String getUrlEmblem() {
         return urlEmblem;
     }
 
-    public void setUrlEmblem(String urlEmblem) {
-        this.urlEmblem = urlEmblem;
-    }
-
     public String getNameTeam() {
         return nameTeam;
-    }
-
-    public void setNameTeam(String nameTeam) {
-        this.nameTeam = nameTeam;
     }
 
     public List<String> getForm() {
@@ -63,47 +57,23 @@ public class ListStandings {
         return form;
     }
 
-    public void setForm(List<String> form) {
-        this.form = form;
-    }
-
-    public int getWon() {
+    public String getWon() {
         return won;
     }
 
-    public void setWon(int won) {
-        this.won = won;
-    }
-
-    public int getDraw() {
+    public String getDraw() {
         return draw;
     }
 
-    public void setDraw(int draw) {
-        this.draw = draw;
-    }
-
-    public int getLost() {
+    public String getLost() {
         return lost;
     }
 
-    public void setLost(int lost) {
-        this.lost = lost;
-    }
-
-    public int getPlayedGames() {
+    public String getPlayedGames() {
         return playedGames;
     }
 
-    public void setPlayedGames(int playedGames) {
-        this.playedGames = playedGames;
-    }
-
-    public int getPoints() {
+    public String getPoints() {
         return points;
-    }
-
-    public void setPoints(int points) {
-        this.points = points;
     }
 }

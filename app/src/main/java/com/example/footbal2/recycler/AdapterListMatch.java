@@ -18,8 +18,8 @@ import java.util.List;
 
 public class AdapterListMatch extends RecyclerView.Adapter<AdapterListMatch.ListMatchViewHolder>{
 
-    private List<ListMatch> list;
-    private Context context;
+    private final List<ListMatch> list;
+    private final Context context;
 
     public AdapterListMatch(Context context, List<ListMatch> list) {
         this.context = context;
@@ -29,11 +29,8 @@ public class AdapterListMatch extends RecyclerView.Adapter<AdapterListMatch.List
     @NonNull
     @Override
     public ListMatchViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-
         View v = LayoutInflater.from(context).inflate(R.layout.list_match, viewGroup, false);
-        ListMatchViewHolder holder = new ListMatchViewHolder(v);
-
-        return holder;
+        return new ListMatchViewHolder(v);
     }
 
     @Override
@@ -57,17 +54,21 @@ public class AdapterListMatch extends RecyclerView.Adapter<AdapterListMatch.List
             holder.result.setText(listStandings.getResultTeam1() + ":" + listStandings.getResultTeam2());
             changeColor(holder.nameTeam1, holder.nameTeam2, listStandings.getWinner());
         }
+
+
     }
     private void changeColor(TextView team1, TextView team2, String result){
-        if (result.equals("HOME_TEAM")){
+        if (!result.equals("HOME_TEAM")) {
+            if (result.equals("DRAW")){
+                team1.setTextColor(context.getColor(R.color.yellow));
+                team2.setTextColor(context.getColor(R.color.yellow));
+            } else if (result.equals("AWAY_TEAM")){
+                team1.setTextColor(context.getColor(R.color.red));
+                team2.setTextColor(context.getColor(R.color.green));
+            }
+        } else {
             team1.setTextColor(context.getColor(R.color.green));
             team2.setTextColor(context.getColor(R.color.red));
-        } else if (result.equals("DRAW")){
-            team1.setTextColor(context.getColor(R.color.yellow));
-            team2.setTextColor(context.getColor(R.color.yellow));
-        } else if (result.equals("AWAY_TEAM")){
-            team1.setTextColor(context.getColor(R.color.red));
-            team2.setTextColor(context.getColor(R.color.green));
         }
     }
 
@@ -78,9 +79,9 @@ public class AdapterListMatch extends RecyclerView.Adapter<AdapterListMatch.List
 
     public static class ListMatchViewHolder extends RecyclerView.ViewHolder {
 
-        private Button nameTeam1;
-        private TextView result;
-        private Button nameTeam2;
+        private final Button nameTeam1;
+        private final TextView result;
+        private final Button nameTeam2;
 
         public ListMatchViewHolder(@NonNull View itemView) {
             super(itemView);
