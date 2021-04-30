@@ -30,4 +30,6 @@
     <string name="website_text">Website</string>
     <string name="stadium_text">Stadium</string>
     <string name="founded_text">Founded</string>
+    <string name="squad_text">Squad</string>
+    <string name="website_btn">Go to website</string>
 </resources>

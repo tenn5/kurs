@@ -13,6 +13,8 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.footbal2.R;
+import com.example.footbal2.auxiliary.DataActivity;
+import com.example.footbal2.auxiliary.DataMatch;
 import com.example.footbal2.constants.Country;
 import com.example.footbal2.constants.GetRequest;
 import com.example.footbal2.constants.TypeData;
@@ -41,26 +43,27 @@ public class Matches extends Fragment {
         spinner = view.findViewById(R.id.spinner);
         rv = view.findViewById(R.id.matches_rv);
 
+        DataActivity data = new DataActivity(getContext(), rv, TypeData.SPINNER);
+        DataMatch dataMatch = new DataMatch(spinner, country);
+
+        GetUrlData getUrlData = new GetUrlData(data, dataMatch);
+        GetRequest constRequest = new GetRequest();
+
         switch (country){
             case ENGLAND:
-                new GetUrlData(getContext(), spinner, TypeData.SPINNER, country, rv)
-                        .execute(new GetRequest().getAllMatchesEngland());
+                getUrlData.execute(constRequest.getAllMatchesEngland());
                 break;
             case GERMANY:
-                new GetUrlData(getContext(), spinner, TypeData.SPINNER, country, rv)
-                        .execute(new GetRequest().getAllMatchesGermany());
+                getUrlData.execute(constRequest.getAllMatchesGermany());
                 break;
             case SPAIN:
-                new GetUrlData(getContext(), spinner, TypeData.SPINNER, country, rv)
-                        .execute(new GetRequest().getAllMatchesSpain());
+                getUrlData.execute(constRequest.getAllMatchesSpain());
                 break;
             case FRANCE:
-                new GetUrlData(getContext(), spinner, TypeData.SPINNER, country, rv)
-                        .execute(new GetRequest().getAllMatchesFrance());
+                getUrlData.execute(constRequest.getAllMatchesFrance());
                 break;
             default:
-                new GetUrlData(getContext(), spinner, TypeData.SPINNER, country, rv)
-                        .execute(new GetRequest().getAllMatchesItaly());
+                getUrlData.execute(constRequest.getAllMatchesItaly());
                 break;
         }
     }

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -13,26 +12,20 @@
         android:gravity="center"
         android:textColor="@color/black"
         android:textSize="36sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/icon_team"
         android:layout_width="0dp"
         android:layout_height="150dp"
         android:layout_marginStart="20dp"
-        app:layout_constraintHorizontal_weight="7.5"
+        android:layout_marginTop="10dp"
         app:layout_constraintEnd_toStartOf="@+id/constraintLayout"
         app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_weight="7.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/name_team" />
 
@@ -40,12 +33,14 @@
         android:id="@+id/constraintLayout"
         android:layout_width="0dp"
         android:layout_height="150dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
         android:background="@color/platinum"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_weight="11.5"
-        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintStart_toEndOf="@+id/icon_team"
         app:layout_constraintTop_toBottomOf="@+id/name_team">
 
         <TextView
@@ -53,43 +48,51 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="5dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
             android:background="@color/white"
-            android:gravity="center_vertical"
-            android:paddingStart="5dp"
+            android:gravity="center"
             android:text="@string/founded_text"
             android:textColor="@color/black"
-            app:layout_constraintHorizontal_weight="3.5"
-            app:layout_constraintBottom_toTopOf="@+id/website_text"
+            app:layout_constraintBottom_toTopOf="@+id/website"
             app:layout_constraintEnd_toStartOf="@+id/founded"
             app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_weight="3.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/stadium_text" />
 
-        <TextView
+        <Button
             android:id="@+id/website"
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginStart="5dp"
             android:layout_marginEnd="5dp"
             android:layout_marginBottom="5dp"
-            android:background="@color/white"
-            android:gravity="center_vertical"
+            android:backgroundTint="@color/white"
+            android:gravity="center"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:text="@string/website_btn"
+            android:textAllCaps="false"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            app:cornerRadius="50dip"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintHorizontal_weight="8"
-            app:layout_constraintStart_toEndOf="@+id/website_text"
-            app:layout_constraintTop_toBottomOf="@+id/founded" />
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/founded"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginTop="5dp"
+            android:layout_marginStart="5dp"
             android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
             android:background="@color/white"
             android:gravity="center_vertical"
+            android:paddingStart="5dp"
+            android:textColor="@color/black"
             app:layout_constraintBottom_toTopOf="@+id/website"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -101,10 +104,15 @@
             android:id="@+id/venue"
             android:layout_width="0dp"
             android:layout_height="0dp"
+            android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
             android:background="@color/white"
             android:gravity="center_vertical"
+            android:maxLines="2"
+            android:paddingStart="5dp"
+            android:textColor="@color/black"
             app:layout_constraintBottom_toTopOf="@+id/founded"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -118,49 +126,33 @@
             android:layout_height="0dp"
             android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
             android:background="@color/white"
-            android:gravity="center_vertical"
-            android:paddingStart="5dp"
+            android:gravity="center"
             android:text="@string/stadium_text"
             android:textColor="@color/black"
-            app:layout_constraintHorizontal_weight="3.5"
             app:layout_constraintBottom_toTopOf="@+id/founded_text"
             app:layout_constraintEnd_toStartOf="@+id/venue"
             app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_weight="3.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/website_text"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:background="@color/white"
-            android:gravity="center_vertical"
-            android:paddingStart="5dp"
-            android:text="@string/website_text"
-            android:textColor="@color/black"
-            app:layout_constraintHorizontal_weight="3.5"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/website"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/founded_text" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
-        android:id="@+id/squad"
+        android:id="@+id/squad_text"
         android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="40dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
         android:gravity="center"
+        android:text="@string/squad_text"
         android:textColor="@color/black"
-        android:textSize="30sp"
+        android:textSize="36sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toBottomOf="@+id/icon_team" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/squad_rv"
@@ -169,6 +161,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/squad" />
+        app:layout_constraintTop_toBottomOf="@+id/squad_text" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

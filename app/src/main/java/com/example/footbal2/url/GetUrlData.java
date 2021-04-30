@@ -1,6 +1,7 @@
 package com.example.footbal2.url;
 
-import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.view.View;
 import android.widget.AdapterView;
@@ -8,10 +9,10 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.footbal2.R;
-import com.example.footbal2.constants.Country;
+import com.example.footbal2.auxiliary.DataInfoTeam;
+import com.example.footbal2.auxiliary.DataMatch;
+import com.example.footbal2.auxiliary.DataActivity;
 import com.example.footbal2.constants.TypeData;
 import com.example.footbal2.recycler.AdapterListMatch;
 import com.example.footbal2.recycler.AdapterListStandings;
@@ -34,27 +35,23 @@ import java.util.List;
 
 public class GetUrlData extends AsyncTask<String, String, String> {
 
-    private Context context;
-    private TypeData typeData;
-    private RecyclerView rv;
-    private Spinner spinner;
-    private int matchDay;
-    private Country country;
+    private DataActivity dataActivity;
+    private DataMatch dataMatch;
+    private DataInfoTeam dataInfoTeam;
 
-    public GetUrlData(Context context, RecyclerView rv, TypeData typeData) {
-        this.context = context;
-        this.typeData = typeData;
-        this.rv = rv;
+    public GetUrlData(DataActivity dataActivity) {
+        this.dataActivity = dataActivity;
     }
 
-    public GetUrlData(Context context, Spinner spinner, TypeData typeData, Country country, RecyclerView rv) {
-        this.context = context;
-        this.spinner = spinner;
-        this.typeData = typeData;
-        this.country = country;
-        this.rv = rv;
+    public GetUrlData(DataActivity dataActivity, DataMatch dataMatch) {
+        this.dataActivity = dataActivity;
+        this.dataMatch = dataMatch;
     }
 
+    public GetUrlData(DataActivity dataActivity, DataInfoTeam dataInfoTeam){
+        this.dataActivity = dataActivity;
+        this.dataInfoTeam = dataInfoTeam;
+    }
 
     @Override
     protected String doInBackground(String... strings) {
@@ -101,19 +98,24 @@ public class GetUrlData extends AsyncTask<String, String, String> {
     protected void onPostExecute(String result){
         super.onPostExecute(result);
         try {
-            if (typeData == TypeData.STANDINGS){
-                rv.setHasFixedSize(true);
-                rv.setLayoutManager( new LinearLayoutManager(context));
-                rv.setAdapter(new AdapterListStandings(context, createTeams(new JSONObject(result))));
-            } else if (typeData == TypeData.MATCH){
-                rv.setHasFixedSize(true);
-                rv.setLayoutManager( new LinearLayoutManager(context));
-                rv.setAdapter(new AdapterListMatch(context, createMatch(new JSONObject(result))));
-            } else if (typeData == TypeData.SPINNER){
-                setSpinner(new JSONObject(result));
-
+            if (dataActivity.getTypeData() != TypeData.SPINNER) {
+                dataActivity.getRecyclerView().setHasFixedSize(true);
+                dataActivity.getRecyclerView().setLayoutManager( new LinearLayoutManager(dataActivity.getContext()));
             }
-
+            switch (dataActivity.getTypeData()) {
+                case STANDINGS:
+                    dataActivity.getRecyclerView().setAdapter(new AdapterListStandings(dataActivity.getContext(), createTeams(new JSONObject(result))));
+                    break;
+                case MATCH:
+                    dataActivity.getRecyclerView().setAdapter(new AdapterListMatch(dataActivity.getContext(), createMatch(new JSONObject(result))));
+                    break;
+                case INFO:
+                    setInfoTeam(new JSONObject(result));
+                    break;
+                default:
+                    setSpinner(new JSONObject(result));
+                    break;
+            }
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -145,38 +147,52 @@ public class GetUrlData extends AsyncTask<String, String, String> {
         for(int i = 0; i < numberLastTour; i++){
             array[i] = (numberLastTour - i) + " tour";
         }
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(context, android.R.layout.simple_spinner_item, array);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
-        spinner.setOnItemSelectedListener(itemSelectedListener);
 
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(dataActivity.getContext(), android.R.layout.simple_spinner_item, array);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        dataMatch.getSpinner().setAdapter(adapter);
+        dataMatch.getSpinner().setOnItemSelectedListener(itemSelectedListener);
+
+    }
+
+    private void setInfoTeam(JSONObject jsonObject) throws JSONException{
+        dataInfoTeam.getNameTeam().setText(jsonObject.getString("name"));
+        Utils.fetchSvg(dataActivity.getContext(), jsonObject.getString("crestUrl"), dataInfoTeam.getImageView());
+        dataInfoTeam.getVenue().setText(jsonObject.getString("venue"));
+        dataInfoTeam.getFounded().setText(jsonObject.getString("founded"));
+        dataInfoTeam.getWebsite().setOnClickListener(v -> {
+            try {
+                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(jsonObject.getString("website")));
+                dataActivity.getContext().startActivity(browserIntent);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        });
     }
 
     private AdapterView.OnItemSelectedListener itemSelectedListener = new AdapterView.OnItemSelectedListener() {
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-            matchDay = Integer.parseInt(((String)parent.getItemAtPosition(position)).split(" ")[0]);
-            System.out.println(new GetRequest().getMatchesEnglandByTour() + matchDay);
-            switch (country){
+            int matchDay = Integer.parseInt(((String)parent.getItemAtPosition(position)).split(" ")[0]);
+
+            GetUrlData getUrlData = new GetUrlData(new DataActivity(dataActivity.getContext(), dataActivity.getRecyclerView(), TypeData.MATCH));
+            GetRequest constRequest = new GetRequest();
+
+            switch (dataMatch.getCountry()){
                 case ENGLAND:
-                    new GetUrlData(context, rv, TypeData.MATCH)
-                            .execute(new GetRequest().getMatchesEnglandByTour() + matchDay);
+                    getUrlData.execute(constRequest.getMatchesEnglandByTour() + matchDay);
                     break;
                 case GERMANY:
-                    new GetUrlData(context, rv, TypeData.MATCH)
-                            .execute(new GetRequest().getMatchesGermanyByTour() + matchDay);
+                    getUrlData.execute(constRequest.getMatchesGermanyByTour() + matchDay);
                     break;
                 case SPAIN:
-                    new GetUrlData(context, rv, TypeData.MATCH)
-                            .execute(new GetRequest().getMatchesSpainByTour() + matchDay);
+                    getUrlData.execute(constRequest.getMatchesSpainByTour() + matchDay);
                     break;
                 case FRANCE:
-                    new GetUrlData(context, rv, TypeData.MATCH)
-                            .execute(new GetRequest().getMatchesFranceByTour() + matchDay);
+                    getUrlData.execute(constRequest.getMatchesFranceByTour() + matchDay);
                     break;
                 default:
-                    new GetUrlData(context, rv, TypeData.MATCH)
-                            .execute(new GetRequest().getMatchesItalyByTour() + matchDay);
+                    getUrlData.execute(constRequest.getMatchesItalyByTour() + matchDay);
                     break;
             }
         }
