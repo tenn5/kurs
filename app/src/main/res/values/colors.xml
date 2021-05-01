@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="primary">#4caf50</color>
-    <color name="primaryDark">#087f23</color>
-    <color name="primaryLight">#80e27e</color>
-    <color name="onPrimary">#CC000000</color>
+    <color name="primary">#43a047</color>
+    <color name="primaryDark">#00701a</color>
+    <color name="primaryLight">#76d275</color>
+    <color name="onPrimary">#E6000000</color>
 
     <color name="secondary">#0288d1</color>
     <color name="secondaryDark">#005b9f</color>
     <color name="secondaryLight">#5eb8ff</color>
-    <color name="onSecondary">#CC000000</color>
-    <color name="selectedSecondary">#ff6f00</color>
+    <color name="onSecondary">#D9000000</color>
+
+    <color name="yellowText">#c68400</color>
+    <color name="yellowBackground">#ffe54c</color>
+    <color name="redText">#ab000d</color>
+    <color name="redBackground">#ff6f60</color>
+
+    <color name="platinum">#E8E9EB</color>
+
 
     <color name="white">#FFF</color>
     <color name="grey">#80000000</color>
-    <color name="platinum">#E8E9EB</color>
-
-    <color name="green">#388E3C</color>
-    <color name="yellow">#FBC02D</color>
-    <color name="red">#D32F2F</color>
-
-
 </resources>

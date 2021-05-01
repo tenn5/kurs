@@ -69,13 +69,13 @@ public class AdapterListStandings extends RecyclerView.Adapter<AdapterListStandi
         form.setText(text);
         switch (text) {
             case "L":
-                form.setTextColor(context.getColor(R.color.red));
+                form.setTextColor(context.getColor(R.color.redText));
                 break;
             case "D":
-                form.setTextColor(context.getColor(R.color.yellow));
+                form.setTextColor(context.getColor(R.color.yellowText));
                 break;
             case "W":
-                form.setTextColor(context.getColor(R.color.green));
+                form.setTextColor(context.getColor(R.color.primaryDark));
                 break;
         }
     }

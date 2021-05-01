@@ -51,7 +51,7 @@ public class AdapterListMatch extends RecyclerView.Adapter<AdapterListMatch.List
         if (listStandings.getWinner().equals("null")) {
             holder.result.setText("-:-");
         } else {
-            holder.result.setBackgroundColor(context.getColor(R.color.green));
+            holder.result.setBackgroundColor(context.getColor(R.color.primaryDark));
             holder.result.setTextColor(context.getColor(R.color.white));
             holder.result.setText(listStandings.getResultTeam1() + ":" + listStandings.getResultTeam2());
             changeColor(holder.nameTeam1, holder.nameTeam2, listStandings.getWinner());
@@ -75,15 +75,15 @@ public class AdapterListMatch extends RecyclerView.Adapter<AdapterListMatch.List
 
         if (!result.equals("HOME_TEAM")) {
             if (result.equals("DRAW")){
-                team1.setBackgroundColor(context.getColor(R.color.yellow));
-                team2.setBackgroundColor(context.getColor(R.color.yellow));
+                team1.setBackgroundColor(context.getColor(R.color.yellowBackground));
+                team2.setBackgroundColor(context.getColor(R.color.yellowBackground));
             } else if (result.equals("AWAY_TEAM")){
-                team1.setBackgroundColor(context.getColor(R.color.red));
-                team2.setBackgroundColor(context.getColor(R.color.green));
+                team1.setBackgroundColor(context.getColor(R.color.redBackground));
+                team2.setBackgroundColor(context.getColor(R.color.primaryLight));
             }
         } else {
-            team1.setBackgroundColor(context.getColor(R.color.green));
-            team2.setBackgroundColor(context.getColor(R.color.red));
+            team1.setBackgroundColor(context.getColor(R.color.primaryLight));
+            team2.setBackgroundColor(context.getColor(R.color.redBackground));
         }
     }
 

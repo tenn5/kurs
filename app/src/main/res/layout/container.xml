@@ -9,8 +9,8 @@
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:background="@color/primaryLight"
-        app:tabIndicatorColor="@color/selectedSecondary"
-        app:tabSelectedTextColor="@color/selectedSecondary"
+        app:tabIndicatorColor="@color/redText"
+        app:tabSelectedTextColor="@color/redText"
         app:tabTextColor="@color/onPrimary">
 
         <com.google.android.material.tabs.TabItem
