@@ -1,4 +1,4 @@
-package com.example.footbal2.recycler;
+package com.example.football2.recycler;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,10 +12,10 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.footbal2.InfoTeam;
-import com.example.footbal2.R;
-import com.example.footbal2.constants.GetRequest;
-import com.example.footbal2.url.Utils;
+import com.example.football2.InfoTeam;
+import com.example.football2.R;
+import com.example.football2.constants.GetRequest;
+import com.example.football2.url.Utils;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.example.footbal2.recycler;
+package com.example.football2.recycler;
 
 import android.content.Context;
 
@@ -6,7 +6,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
-import androidx.fragment.app.FragmentPagerAdapter;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
 

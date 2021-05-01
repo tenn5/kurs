@@ -1,4 +1,4 @@
-package com.example.footbal2.fragments;
+package com.example.football2.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -8,15 +8,13 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.footbal2.R;
-import com.example.footbal2.auxiliary.DataActivity;
-import com.example.footbal2.auxiliary.DataInfoTeam;
-import com.example.footbal2.constants.Country;
-import com.example.footbal2.constants.GetRequest;
-import com.example.footbal2.constants.TypeData;
-import com.example.footbal2.url.GetUrlData;
+import com.example.football2.R;
+import com.example.football2.auxiliary.DataActivity;
+import com.example.football2.constants.Country;
+import com.example.football2.constants.GetRequest;
+import com.example.football2.constants.TypeData;
+import com.example.football2.url.GetUrlData;
 
 public class Standings extends Fragment {
 

@@ -1,4 +1,4 @@
-package com.example.footbal2.url;
+package com.example.football2.url;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -6,19 +6,18 @@ import android.os.AsyncTask;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Spinner;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import com.example.footbal2.auxiliary.DataInfoTeam;
-import com.example.footbal2.auxiliary.DataMatch;
-import com.example.footbal2.auxiliary.DataActivity;
-import com.example.footbal2.constants.TypeData;
-import com.example.footbal2.recycler.AdapterListMatch;
-import com.example.footbal2.recycler.AdapterListStandings;
-import com.example.footbal2.recycler.ListMatch;
-import com.example.footbal2.recycler.ListStandings;
-import com.example.footbal2.constants.GetRequest;
+import com.example.football2.auxiliary.DataInfoTeam;
+import com.example.football2.auxiliary.DataMatch;
+import com.example.football2.auxiliary.DataActivity;
+import com.example.football2.constants.TypeData;
+import com.example.football2.recycler.AdapterListMatch;
+import com.example.football2.recycler.AdapterListStandings;
+import com.example.football2.recycler.ListMatch;
+import com.example.football2.recycler.ListStandings;
+import com.example.football2.constants.GetRequest;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -38,6 +37,37 @@ public class GetUrlData extends AsyncTask<String, String, String> {
     private DataActivity dataActivity;
     private DataMatch dataMatch;
     private DataInfoTeam dataInfoTeam;
+
+    private final AdapterView.OnItemSelectedListener itemSelectedListener = new AdapterView.OnItemSelectedListener() {
+        @Override
+        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+            int matchDay = Integer.parseInt(((String)parent.getItemAtPosition(position)).split(" ")[0]);
+
+            GetUrlData getUrlData = new GetUrlData(new DataActivity(dataActivity.getContext(), dataActivity.getRecyclerView(), TypeData.MATCH));
+            GetRequest constRequest = new GetRequest();
+
+            switch (dataMatch.getCountry()){
+                case ENGLAND:
+                    getUrlData.execute(constRequest.getMatchesEnglandByTour() + matchDay);
+                    break;
+                case GERMANY:
+                    getUrlData.execute(constRequest.getMatchesGermanyByTour() + matchDay);
+                    break;
+                case SPAIN:
+                    getUrlData.execute(constRequest.getMatchesSpainByTour() + matchDay);
+                    break;
+                case FRANCE:
+                    getUrlData.execute(constRequest.getMatchesFranceByTour() + matchDay);
+                    break;
+                default:
+                    getUrlData.execute(constRequest.getMatchesItalyByTour() + matchDay);
+                    break;
+            }
+        }
+        @Override
+        public void onNothingSelected(AdapterView<?> parent) {
+        }
+    };
 
     public GetUrlData(DataActivity dataActivity) {
         this.dataActivity = dataActivity;
@@ -169,36 +199,4 @@ public class GetUrlData extends AsyncTask<String, String, String> {
             }
         });
     }
-
-    private AdapterView.OnItemSelectedListener itemSelectedListener = new AdapterView.OnItemSelectedListener() {
-        @Override
-        public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-            int matchDay = Integer.parseInt(((String)parent.getItemAtPosition(position)).split(" ")[0]);
-
-            GetUrlData getUrlData = new GetUrlData(new DataActivity(dataActivity.getContext(), dataActivity.getRecyclerView(), TypeData.MATCH));
-            GetRequest constRequest = new GetRequest();
-
-            switch (dataMatch.getCountry()){
-                case ENGLAND:
-                    getUrlData.execute(constRequest.getMatchesEnglandByTour() + matchDay);
-                    break;
-                case GERMANY:
-                    getUrlData.execute(constRequest.getMatchesGermanyByTour() + matchDay);
-                    break;
-                case SPAIN:
-                    getUrlData.execute(constRequest.getMatchesSpainByTour() + matchDay);
-                    break;
-                case FRANCE:
-                    getUrlData.execute(constRequest.getMatchesFranceByTour() + matchDay);
-                    break;
-                default:
-                    getUrlData.execute(constRequest.getMatchesItalyByTour() + matchDay);
-                    break;
-            }
-        }
-        @Override
-        public void onNothingSelected(AdapterView<?> parent) {
-        }
-    };
-
 }

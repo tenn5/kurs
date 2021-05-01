@@ -2,16 +2,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".fragments.england.EnglandContainer">
+    android:layout_height="match_parent">
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tab_layout"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@android:color/transparent"
-        app:tabSelectedTextColor="@color/dark_green"
-        app:tabTextColor="@color/black">
+        android:background="@color/primaryLight"
+        app:tabIndicatorColor="@color/selectedSecondary"
+        app:tabSelectedTextColor="@color/selectedSecondary"
+        app:tabTextColor="@color/onPrimary">
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"

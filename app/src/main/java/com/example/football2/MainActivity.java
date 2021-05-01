@@ -1,15 +1,19 @@
- package com.example.footbal2;
+ package com.example.football2;
 
+ import android.graphics.Color;
+ import android.graphics.drawable.Drawable;
  import android.os.Bundle;
  import android.view.MenuItem;
 
  import androidx.appcompat.app.ActionBarDrawerToggle;
  import androidx.appcompat.app.AppCompatActivity;
  import androidx.appcompat.widget.Toolbar;
+ import androidx.core.content.res.ResourcesCompat;
+ import androidx.core.graphics.drawable.DrawableCompat;
  import androidx.drawerlayout.widget.DrawerLayout;
 
- import com.example.footbal2.fragments.Container;
- import com.example.footbal2.constants.Country;
+ import com.example.football2.fragments.Container;
+ import com.example.football2.constants.Country;
  import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
@@ -27,8 +31,13 @@ public class MainActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment, Container.getInstance(Country.ENGLAND), null).commit();
         toolbar.setTitle(R.string.menu_england);
 
+
+        Drawable drawable = ResourcesCompat.getDrawable(getResources(), R.drawable.ic_baseline_menu_24, null);
+        drawable = DrawableCompat.wrap(drawable);
+        DrawableCompat.setTint(drawable, Color.BLACK);
+
         setSupportActionBar(toolbar);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_baseline_menu_24);
+        getSupportActionBar().setHomeAsUpIndicator(drawable);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         new ActionBarDrawerToggle(this, drawerLayout,
                 toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);

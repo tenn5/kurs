@@ -1,8 +1,8 @@
-package com.example.footbal2.auxiliary;
+package com.example.football2.auxiliary;
 
 import android.widget.Spinner;
 
-import com.example.footbal2.constants.Country;
+import com.example.football2.constants.Country;
 
 public class DataMatch {
     private Spinner spinner;

@@ -1,4 +1,4 @@
-package com.example.footbal2.auxiliary;
+package com.example.football2.auxiliary;
 
 import android.widget.Button;
 import android.widget.ImageView;
@@ -31,7 +31,7 @@ public class DataInfoTeam {
         return founded;
     }
 
-    public TextView getWebsite() {
+    public Button getWebsite() {
         return website;
     }
 

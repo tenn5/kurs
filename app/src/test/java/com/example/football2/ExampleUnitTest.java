@@ -1,4 +1,4 @@
-package com.example.footbal2;
+package com.example.football2;
 
 import org.junit.Test;
 

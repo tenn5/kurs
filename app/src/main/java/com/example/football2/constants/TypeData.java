@@ -1,4 +1,4 @@
-package com.example.footbal2.constants;
+package com.example.football2.constants;
 
 public enum TypeData {
     STANDINGS, MATCH, INFO, SPINNER

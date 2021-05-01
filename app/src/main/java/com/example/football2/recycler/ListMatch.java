@@ -1,4 +1,4 @@
-package com.example.footbal2.recycler;
+package com.example.football2.recycler;
 
 import org.json.JSONException;
 import org.json.JSONObject;

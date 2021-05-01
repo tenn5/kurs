@@ -1,9 +1,9 @@
-package com.example.footbal2.url;
+package com.example.football2.url;
 
 import android.content.Context;
 import android.widget.ImageView;
 
-import com.example.footbal2.R;
+import com.example.football2.R;
 import com.pixplicity.sharp.Sharp;
 
 import java.io.IOException;

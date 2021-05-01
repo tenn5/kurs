@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="dark_green">#007D1C</color>
-    <color name="green">#339900</color>
-    <color name="white">#FFFFFFFF</color>
+    <color name="primary">#4caf50</color>
+    <color name="primaryDark">#087f23</color>
+    <color name="primaryLight">#80e27e</color>
+    <color name="onPrimary">#CC000000</color>
 
-    <color name="portland_orange">#f46036</color>
-    <color name="black">#000</color>
+    <color name="secondary">#0288d1</color>
+    <color name="secondaryDark">#005b9f</color>
+    <color name="secondaryLight">#5eb8ff</color>
+    <color name="onSecondary">#CC000000</color>
+    <color name="selectedSecondary">#ff6f00</color>
 
+    <color name="white">#FFF</color>
+    <color name="grey">#80000000</color>
     <color name="platinum">#E8E9EB</color>
-    <color name="text_color">#8a000000</color>
 
-    <color name="red">#c62828</color>
-    <color name="yellow">#FF8F00</color>
+    <color name="green">#388E3C</color>
+    <color name="yellow">#FBC02D</color>
+    <color name="red">#D32F2F</color>
 
 
-
-    <color name="purple_200">#FFBB86FC</color>
-    <color name="purple_500">#FF6200EE</color>
-    <color name="purple_700">#FF3700B3</color>
-    <color name="teal_200">#FF03DAC5</color>
-    <color name="teal_700">#FF018786</color>
 </resources>

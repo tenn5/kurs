@@ -1,4 +1,4 @@
-package com.example.footbal2.recycler;
+package com.example.football2.recycler;
 
 
 import android.content.Context;
@@ -12,9 +12,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.footbal2.InfoTeam;
-import com.example.footbal2.R;
-import com.example.footbal2.constants.GetRequest;
+import com.example.football2.InfoTeam;
+import com.example.football2.R;
+import com.example.football2.constants.GetRequest;
 
 import java.util.List;
 
@@ -69,18 +69,21 @@ public class AdapterListMatch extends RecyclerView.Adapter<AdapterListMatch.List
             context.startActivity(intent);
         });
     }
-    private void changeColor(TextView team1, TextView team2, String result){
+    private void changeColor(Button team1, Button team2, String result){
+        team1.setTextColor(context.getColor(R.color.onSecondary));
+        team2.setTextColor(context.getColor(R.color.onSecondary));
+
         if (!result.equals("HOME_TEAM")) {
             if (result.equals("DRAW")){
-                team1.setTextColor(context.getColor(R.color.yellow));
-                team2.setTextColor(context.getColor(R.color.yellow));
+                team1.setBackgroundColor(context.getColor(R.color.yellow));
+                team2.setBackgroundColor(context.getColor(R.color.yellow));
             } else if (result.equals("AWAY_TEAM")){
-                team1.setTextColor(context.getColor(R.color.red));
-                team2.setTextColor(context.getColor(R.color.green));
+                team1.setBackgroundColor(context.getColor(R.color.red));
+                team2.setBackgroundColor(context.getColor(R.color.green));
             }
         } else {
-            team1.setTextColor(context.getColor(R.color.green));
-            team2.setTextColor(context.getColor(R.color.red));
+            team1.setBackgroundColor(context.getColor(R.color.green));
+            team2.setBackgroundColor(context.getColor(R.color.red));
         }
     }
 

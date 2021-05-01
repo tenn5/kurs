@@ -1,10 +1,10 @@
-package com.example.footbal2.auxiliary;
+package com.example.football2.auxiliary;
 
 import android.content.Context;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.footbal2.constants.TypeData;
+import com.example.football2.constants.TypeData;
 
 public class DataActivity {
     private Context context;

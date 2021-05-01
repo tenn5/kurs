@@ -1,4 +1,4 @@
-package com.example.footbal2.fragments;
+package com.example.football2.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,9 +10,9 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.viewpager.widget.ViewPager;
 
-import com.example.footbal2.R;
-import com.example.footbal2.constants.Country;
-import com.example.footbal2.recycler.AdapterContainer;
+import com.example.football2.R;
+import com.example.football2.constants.Country;
+import com.example.football2.recycler.AdapterContainer;
 import com.google.android.material.tabs.TabLayout;
 
 

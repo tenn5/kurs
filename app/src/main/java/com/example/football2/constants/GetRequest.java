@@ -1,4 +1,4 @@
-package com.example.footbal2.constants;
+package com.example.football2.constants;
 
 public class GetRequest {
     private final String standingsEnglandUrl = "https://api.football-data.org/v2/competitions/PL/standings";
