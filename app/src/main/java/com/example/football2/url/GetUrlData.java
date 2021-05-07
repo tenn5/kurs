@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 
 import androidx.recyclerview.widget.LinearLayoutManager;
 
+import com.example.football2.R;
 import com.example.football2.auxiliary.DataInfoTeam;
 import com.example.football2.auxiliary.DataMatch;
 import com.example.football2.auxiliary.DataActivity;
@@ -178,8 +179,9 @@ public class GetUrlData extends AsyncTask<String, String, String> {
             array[i] = (numberLastTour - i) + " tour";
         }
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(dataActivity.getContext(), android.R.layout.simple_spinner_item, array);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(dataActivity.getContext(),
+                R.layout.spinner_item, array);
+        adapter.setDropDownViewResource(R.layout.spinner_dropdown_item);
         dataMatch.getSpinner().setAdapter(adapter);
         dataMatch.getSpinner().setOnItemSelectedListener(itemSelectedListener);
 
