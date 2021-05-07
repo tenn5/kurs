@@ -186,7 +186,11 @@ public class GetUrlData extends AsyncTask<String, String, String> {
     }
 
     private void setInfoTeam(JSONObject jsonObject) throws JSONException{
-        dataInfoTeam.getNameTeam().setText(jsonObject.getString("name"));
+        dataInfoTeam.getNameTeam().setText(jsonObject.getString("name")
+                .replaceAll(new GetRequest().getRegexNameTeam(), "")
+                .replace("1.", "")
+                .trim().replaceAll("\\s{2,}", " "));
+
         Utils.fetchSvg(dataActivity.getContext(), jsonObject.getString("crestUrl"), dataInfoTeam.getImageView());
         dataInfoTeam.getVenue().setText(jsonObject.getString("venue"));
         dataInfoTeam.getFounded().setText(jsonObject.getString("founded"));

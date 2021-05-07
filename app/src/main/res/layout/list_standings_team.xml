@@ -5,7 +5,7 @@
     android:id="@+id/toolbar"
     android:layout_width="match_parent"
     android:layout_height="50dp"
-    android:layout_marginTop="5dp">
+    android:layout_marginBottom="5dp">
 
     <TextView
         android:id="@+id/five_matches_ago"
