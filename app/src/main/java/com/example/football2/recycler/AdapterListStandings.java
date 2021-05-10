@@ -32,7 +32,7 @@ public class AdapterListStandings extends RecyclerView.Adapter<AdapterListStandi
     @NonNull
     @Override
     public ListStandingsViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View v = LayoutInflater.from(context).inflate(R.layout.list_standings_team, viewGroup, false);
+        View v = LayoutInflater.from(context).inflate(R.layout.list_standings, viewGroup, false);
         return new ListStandingsViewHolder(v);
     }
 

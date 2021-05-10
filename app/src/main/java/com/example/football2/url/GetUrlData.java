@@ -15,8 +15,10 @@ import com.example.football2.auxiliary.DataMatch;
 import com.example.football2.auxiliary.DataActivity;
 import com.example.football2.constants.TypeData;
 import com.example.football2.recycler.AdapterListMatch;
+import com.example.football2.recycler.AdapterListSquad;
 import com.example.football2.recycler.AdapterListStandings;
 import com.example.football2.recycler.ListMatch;
+import com.example.football2.recycler.ListSquad;
 import com.example.football2.recycler.ListStandings;
 import com.example.football2.constants.GetRequest;
 
@@ -31,6 +33,9 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class GetUrlData extends AsyncTask<String, String, String> {
@@ -124,24 +129,26 @@ public class GetUrlData extends AsyncTask<String, String, String> {
         return null;
     }
 
-    @SuppressWarnings("SetTextI18n")
     @Override
     protected void onPostExecute(String result){
         super.onPostExecute(result);
         try {
             if (dataActivity.getTypeData() != TypeData.SPINNER) {
                 dataActivity.getRecyclerView().setHasFixedSize(true);
-                dataActivity.getRecyclerView().setLayoutManager( new LinearLayoutManager(dataActivity.getContext()));
+                dataActivity.getRecyclerView().setLayoutManager(new LinearLayoutManager(dataActivity.getContext()));
             }
             switch (dataActivity.getTypeData()) {
                 case STANDINGS:
-                    dataActivity.getRecyclerView().setAdapter(new AdapterListStandings(dataActivity.getContext(), createTeams(new JSONObject(result))));
+                    dataActivity.getRecyclerView().setAdapter(
+                            new AdapterListStandings(dataActivity.getContext(), createTeams(new JSONObject(result))));
                     break;
                 case MATCH:
-                    dataActivity.getRecyclerView().setAdapter(new AdapterListMatch(dataActivity.getContext(), createMatch(new JSONObject(result))));
+                    dataActivity.getRecyclerView().setAdapter(
+                            new AdapterListMatch(dataActivity.getContext(), createMatch(new JSONObject(result))));
                     break;
                 case INFO:
-                    setInfoTeam(new JSONObject(result));
+                    dataActivity.getRecyclerView().setAdapter(
+                            new AdapterListSquad(dataActivity.getContext(), setInfoTeam(new JSONObject(result))));
                     break;
                 default:
                     setSpinner(new JSONObject(result));
@@ -187,7 +194,7 @@ public class GetUrlData extends AsyncTask<String, String, String> {
 
     }
 
-    private void setInfoTeam(JSONObject jsonObject) throws JSONException{
+    private List<ListSquad> setInfoTeam(JSONObject jsonObject) throws JSONException{
         dataInfoTeam.getNameTeam().setText(jsonObject.getString("name")
                 .replaceAll(new GetRequest().getRegexNameTeam(), "")
                 .replace("1.", "")
@@ -204,5 +211,23 @@ public class GetUrlData extends AsyncTask<String, String, String> {
                 e.printStackTrace();
             }
         });
+
+        List<ListSquad> squad = new ArrayList<>();
+        JSONArray jsonArray = jsonObject.getJSONArray("squad");
+        for (int i = 0; i < jsonArray.length(); i++){
+            squad.add(new ListSquad(jsonArray.getJSONObject(i)));
+        }
+
+        List<String> compare = Arrays.asList("COACH", "ASSISTANT_COACH", "Goalkeeper", "Defender", "Midfielder", "Attacker");
+        Collections.sort(squad, (object1, object2) -> {
+            Integer firstId = compare.indexOf(object1.getPosition());
+            Integer secondId = compare.indexOf(object2.getPosition());
+            if (firstId.compareTo(secondId) == 0) {
+                return object1.getName().compareTo(object2.getName());
+            } else {
+                return firstId.compareTo(secondId);
+            }
+        });
+        return squad;
     }
 }
