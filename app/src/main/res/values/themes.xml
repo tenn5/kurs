@@ -25,4 +25,7 @@
 
     <style name="Theme.Football2.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
 
+    <style name="SplashScreen" parent="Theme.Football2.NoActionBar">
+        <item name="android:windowBackground">@drawable/splash_screen</item>
+    </style>
 </resources>
