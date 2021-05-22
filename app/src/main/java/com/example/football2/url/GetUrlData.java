@@ -132,6 +132,9 @@ public class GetUrlData extends AsyncTask<String, String, String> {
     @Override
     protected void onPostExecute(String result){
         super.onPostExecute(result);
+        if (result == null){
+            return;
+        }
         try {
             if (dataActivity.getTypeData() != TypeData.SPINNER) {
                 dataActivity.getRecyclerView().setHasFixedSize(true);

@@ -1,20 +1,20 @@
- package com.example.football2;
+package com.example.football2;
 
- import android.graphics.Color;
- import android.graphics.drawable.Drawable;
- import android.os.Bundle;
- import android.view.MenuItem;
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
+import android.os.Bundle;
+import android.view.MenuItem;
 
- import androidx.appcompat.app.ActionBarDrawerToggle;
- import androidx.appcompat.app.AppCompatActivity;
- import androidx.appcompat.widget.Toolbar;
- import androidx.core.content.res.ResourcesCompat;
- import androidx.core.graphics.drawable.DrawableCompat;
- import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.res.ResourcesCompat;
+import androidx.core.graphics.drawable.DrawableCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
- import com.example.football2.fragments.Container;
- import com.example.football2.constants.Country;
- import com.google.android.material.navigation.NavigationView;
+import com.example.football2.fragments.Container;
+import com.example.football2.constants.Country;
+import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
